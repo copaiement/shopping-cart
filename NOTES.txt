@@ -1,0 +1,14 @@
+#Pages:
+Home
+Catalog (Sort by collection)
+Cart page
+
+#Page details:
+Nav bar on each page lets user click between Pages
+
+Use Router to render Pages
+
+#Necessary components:
+Navbar
+Card (item information)
+
