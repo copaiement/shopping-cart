@@ -1,7 +1,11 @@
+import { Featured } from "../components/Featured"
+import { Hero } from "../components/Hero"
+
 export function Home() {
   return (
     <div className="home">
-      <h1>This is the HOME PAGE</h1>
+      <Hero />
+      <Featured />
     </div>
   )
 }
