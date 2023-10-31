@@ -3,4 +3,16 @@
   margin: 0;
   padding: 12px;
   display: flex;
+  align-items: center;
+}
+
+.navbar-links {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.navbar-link {
+  font-weight: bold;
+  text-decoration: none;
 }

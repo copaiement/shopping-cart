@@ -5,6 +5,7 @@ import { Home } from "./Home"
 import { Catalog } from './Catalog'
 import { ShoppingCart } from './ShoppingCart'
 import { DetailPage } from './DetailPage'
+import '../styles/root.css'
 
 export function Root() {
   return (

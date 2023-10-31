@@ -1,3 +1,7 @@
 .footer {
   background-color: blue;
+  margin: 0;
+  font-size: 12px;
+  padding: 12px;
+  text-align: center;
 }
