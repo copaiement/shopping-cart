@@ -20,11 +20,10 @@ export function App() {
     console.log("useEffect Call");
     (async () => {
       const newItems = await fetchItems(10);
-      console.log(newItems);
       setItems(newItems);
       setFeatured(newItems.slice(0,6));
     })();
-  }, [])
+  }, []);
 
   return (
     <>
