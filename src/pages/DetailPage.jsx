@@ -1,8 +1,17 @@
 import { Link, useParams } from "react-router-dom"
+import { useEffect } from "react";
 
-export function DetailPage({ items }) {
+export function DetailPage({ items, addToCart, setActive }) {
   const { itemId } = useParams();
+  
   const item = items.find((item) => item.id === itemId);
+
+  useEffect(() => {
+    setActive(item);
+    console.log('detail useEffect')
+  })
+  
+
   return (
     <div className="detail-page">
       <Link to="/">Home</Link>
@@ -13,6 +22,10 @@ export function DetailPage({ items }) {
         <div className="detail-title">{item.title}</div>
         <div className="detail-desc">{item.description}</div>
         <div className="detail-price">{item.price}</div>
+      </div>
+      <div className="cart-container">
+        {/* add quantity counter here */}
+        <button onClick={addToCart}>Add to Cart</button>
       </div>
     </div>
   )

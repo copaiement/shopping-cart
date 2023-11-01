@@ -18,7 +18,7 @@ export function Card({ item }) {
 
 export function CartCard({ item }) {
   return (
-    <div className="cart">
+    <div className="cart-card">
       <div className="cart-image">
         <img src={item.imgUrl} alt={item.title} />
       </div>

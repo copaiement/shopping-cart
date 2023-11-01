@@ -15,17 +15,19 @@ export function App() {
   const [items, setItems] = useState([]);
   const [featured, setFeatured] = useState([]);
   const [cart, setCart] = useState([]);
+  const [active, setActive] = useState({})
 
-  function addToCart(item) {
-
+  function addToCart() {
+    const newCart = cart;
+    newCart.push(active);
+    setCart(newCart);
+    console.log(cart)
   }
 
   // initial API call on mount
   useEffect(() => {
-    console.log("useEffect Call");
     (async () => {
       const newItems = await fetchItems(10);
-      console.log(newItems);
       setItems(newItems);
       setFeatured(newItems.slice(0,6));
     })();
@@ -38,7 +40,7 @@ export function App() {
         <Route path="/" element={<Home items={featured} />} />
         <Route path="catalog" element={<Catalog items={items} />} />
         <Route path="cart" element={<ShoppingCart items={cart}/>} />
-        <Route path="item/:itemId" element={<DetailPage items={items}/>} />
+        <Route path="item/:itemId" element={<DetailPage items={items} addToCart={addToCart} setActive={setActive}/>} />
       </Routes>
       <Footer />
     </>
