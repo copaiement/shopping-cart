@@ -1,14 +1,10 @@
-#Pages:
-Home
-Catalog (Sort by collection)
-Cart page
+Need to add cart functionality
 
-#Page details:
-Nav bar on each page lets user click between Pages
+Cart page should be a list of the cards with the product information
+Lengthwise setup instead of standard cards
+Show image, product name, quantity, price, and total price of all items.
 
-Use Router to render Pages
+Cart icon (also a link) needs to show when items are in the cart
 
-#Necessary components:
-Navbar
-Card (item information)
+
 

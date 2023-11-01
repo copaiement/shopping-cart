@@ -1,5 +1,5 @@
 import { Card } from "./Card"
-import "../styles/featured.css"
+import "../styles/catalog.css"
 
 export function Featured({ items }) {
   console.log(items)
