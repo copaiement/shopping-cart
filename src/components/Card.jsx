@@ -3,7 +3,7 @@ import '../styles/card.css'
 
 export function Card({ item }) {
   return (
-    <Link to={`item/${item.id}`}>
+    <Link to={`/item/${item.id}`}>
       <div className="card">
         <div className="card-image">
           <img src={item.imgUrl} alt={item.title} />

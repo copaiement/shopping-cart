@@ -2,8 +2,7 @@ import { Link, useParams } from "react-router-dom"
 
 export function DetailPage({ items }) {
   const { itemId } = useParams();
-  const item = items.find((item) => item.id = itemId)
-  console.log(item)
+  const item = items.find((item) => item.id === itemId);
   return (
     <div className="detail-page">
       <Link to="/">Home</Link>
