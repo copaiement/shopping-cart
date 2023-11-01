@@ -14,8 +14,13 @@ import { useEffect, useState } from "react"
 export function App() {
   const [items, setItems] = useState([]);
   const [featured, setFeatured] = useState([]);
+  const [cart, setCart] = useState([]);
 
+  function addToCart(item) {
 
+  }
+
+  // initial API call on mount
   useEffect(() => {
     console.log("useEffect Call");
     (async () => {
@@ -31,8 +36,8 @@ export function App() {
       <Routes>
         <Route path="/" element={<Home items={featured} />} />
         <Route path="catalog" element={<Catalog items={items} />} />
-        <Route path="cart" element={<ShoppingCart />} />
-        <Route path="item/:itemId" element={<DetailPage />} />
+        <Route path="cart" element={<ShoppingCart items={cart}/>} />
+        <Route path="item/:itemId" element={<DetailPage items={items}/>} />
       </Routes>
       <Footer />
     </>

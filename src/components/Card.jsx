@@ -1,14 +1,18 @@
+import { Link } from 'react-router-dom'
 import '../styles/card.css'
 
 export function Card({ item }) {
   return (
-    <div className="card">
-      <div className="card-image">
-        <img src={item.featuredImage.url} alt={item.title} />
+    <Link to={`item/${item.id}`}>
+      <div className="card">
+        <div className="card-image">
+          <img src={item.imgUrl} alt={item.title} />
+        </div>
+        <div className="card-title">{item.title}</div>
+        <div className="card-price">$ {item.price}0</div>
       </div>
-      <div className="card-title">{item.title}</div>
-      <div className="card-price">$ {item.variants.edges[0].node.price.amount}0</div>
-    </div>
+    </Link>
+
   )
 }
 
@@ -16,10 +20,10 @@ export function CartCard({ item }) {
   return (
     <div className="cart">
       <div className="cart-image">
-        <img src={item.featuredImage.url} alt={item.title} />
+        <img src={item.imgUrl} alt={item.title} />
       </div>
       <div className="cart-title">{item.title}</div>
-      <div className="cart-price">$ {item.variants.edges[0].node.price.amount}0</div>
+      <div className="cart-price">$ {item.price}0</div>
     </div>
   )
 }

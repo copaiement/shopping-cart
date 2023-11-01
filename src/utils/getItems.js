@@ -6,6 +6,15 @@ export async function fetchItems(qty) {
   const response = await request.json();
   const edgesArr = response.data.products.edges;
   const prodArr = [];
-  edgesArr.forEach((item) => prodArr.push(item.node));
+  edgesArr.forEach((item) => prodArr.push({
+    description: item.node.description,
+    id: item.node.title.toLowerCase().replace(/'/g, '').replace(/\s/g, '-'),
+    title: item.node.title,
+    price: item.node.variants.edges[0].node.price.amount,
+    imgUrl: item.node.featuredImage.url,
+    variants: [
+      ...item.node.variants.edges
+    ]
+  }));
   return prodArr;
 }
