@@ -10,9 +10,18 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-link {
   font-weight: bold;
   text-decoration: none;
+}
+
+.cart-icon {
+  height: 28px
+}
+
+path {
+  fill: white;
 }

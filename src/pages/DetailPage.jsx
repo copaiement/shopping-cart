@@ -1,16 +1,45 @@
 import { Link, useParams } from "react-router-dom"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function DetailPage({ items, addToCart, setActive }) {
   const { itemId } = useParams();
-  
+  const [quantity, setQuantity] = useState(1)
   const item = items.find((item) => item.id === itemId);
 
   useEffect(() => {
-    setActive(item);
+    setActive({
+      item: item,
+      quantity: quantity,
+    });
     console.log('detail useEffect')
-  })
+  },[setActive, item, quantity])
   
+  function manualQty(e) {
+    // if entered item is not a number, return
+    const regex = /(^\d*$)/
+    if (regex.test(e.target.value) ) {
+      setQuantity(Number(e.target.value));
+      console.log(Number(e.target.value));
+    }
+  }
+
+  function addQty() {
+    if (quantity > 99) {
+      return;
+    } else {
+      const newQuant = quantity + 1;
+      setQuantity(newQuant);
+    }
+  }
+
+  function subQty() {
+    if (quantity === 1) {
+      return;
+    } else {
+      const newQuant = quantity - 1;
+      setQuantity(newQuant);
+    }
+  }
 
   return (
     <div className="detail-page">
@@ -25,6 +54,20 @@ export function DetailPage({ items, addToCart, setActive }) {
       </div>
       <div className="cart-container">
         {/* add quantity counter here */}
+        <button 
+          onClick={subQty}
+          disabled={quantity <= 1}
+        >-
+        </button>
+        <input  
+          value={quantity}
+          onChange={manualQty} 
+        />
+        <button 
+          onClick={addQty}
+          disabled={quantity >= 99}
+        >+
+        </button>
         <button onClick={addToCart}>Add to Cart</button>
       </div>
     </div>

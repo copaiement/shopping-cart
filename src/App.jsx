@@ -19,6 +19,9 @@ export function App() {
 
   function addToCart() {
     const newCart = cart;
+    // check if item exists
+    // if so, add new qty to existing
+    // if not, push the active item as-is
     newCart.push(active);
     setCart(newCart);
     console.log(cart)
@@ -39,7 +42,7 @@ export function App() {
       <Routes>
         <Route path="/" element={<Home items={featured} />} />
         <Route path="catalog" element={<Catalog items={items} />} />
-        <Route path="cart" element={<ShoppingCart items={cart}/>} />
+        <Route path="cart" element={<ShoppingCart cart={cart}/>} />
         <Route path="item/:itemId" element={<DetailPage items={items} addToCart={addToCart} setActive={setActive}/>} />
       </Routes>
       <Footer />
