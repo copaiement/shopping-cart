@@ -16,14 +16,29 @@ export function Card({ item }) {
   )
 }
 
-export function CartCard({ item }) {
+export function CartCard({ cartItem }) {
   return (
     <div className="cart-card">
-      <div className="cart-image">
-        <img src={item.imgUrl} alt={item.title} />
+      <div className="cart-item-info-container">
+        <div className="cart-item-image">
+          <img src={cartItem.item.imgUrl} alt={cartItem.item.title} />
+        </div>
+        <div className="cart-item-title">{cartItem.item.title}</div>
+        <div className="cart-item-price">$ {cartItem.item.price}0</div>
       </div>
-      <div className="cart-title">{item.title}</div>
-      <div className="cart-price">$ {item.price}0</div>
+      <div className="cart-item-quantity-container">
+        <div className="cart-item-quantity">
+          <button>-</button>
+          <input/>
+          <button>+</button>
+        </div>
+        <div className="cart delete">
+
+        </div>
+      </div>
+      <div className="cart-item-total-container">
+        <div className="cart-item-total">{Number(cartItem.item.price) * cartItem.quantity}</div>
+      </div>
     </div>
   )
 }

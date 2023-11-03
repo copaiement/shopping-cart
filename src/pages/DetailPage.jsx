@@ -52,7 +52,7 @@ export function DetailPage({ items, addToCart, setActive }) {
         <div className="detail-desc">{item.description}</div>
         <div className="detail-price">{item.price}</div>
       </div>
-      <div className="cart-container">
+      <div className="detail-qty-container">
         {/* add quantity counter here */}
         <button 
           onClick={subQty}
