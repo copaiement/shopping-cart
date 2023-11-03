@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 import { CartCard } from "../components/Card"
 
-export function ShoppingCart({ cart }) {
+export function ShoppingCart({ cart, setCart }) {
   
   console.log(cart)
-  
+
   return (
     <>  
     { cart.length === 0 ? 
@@ -27,8 +27,10 @@ export function ShoppingCart({ cart }) {
             <div className="cart">
               { cart.map((item) => (
                 <CartCard
-                  key={item.item.id} 
-                  cartItem={item} 
+                  key={item.item.id}
+                  cart={cart} 
+                  cartItem={item}
+                  setCart={setCart} 
                 />
               ))}
 

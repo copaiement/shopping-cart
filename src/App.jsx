@@ -42,7 +42,7 @@ export function App() {
       <Routes>
         <Route path="/" element={<Home items={featured} />} />
         <Route path="catalog" element={<Catalog items={items} />} />
-        <Route path="cart" element={<ShoppingCart cart={cart}/>} />
+        <Route path="cart" element={<ShoppingCart cart={cart} setCart={setCart}/>} />
         <Route path="item/:itemId" element={<DetailPage items={items} addToCart={addToCart} setActive={setActive}/>} />
       </Routes>
       <Footer />

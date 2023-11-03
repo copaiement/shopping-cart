@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react';
 import '../styles/card.css'
 
 export function Card({ item }) {
@@ -16,7 +17,37 @@ export function Card({ item }) {
   )
 }
 
-export function CartCard({ cartItem }) {
+export function CartCard({ cart, cartItem, setCart }) {
+  
+  const [cartQty, setCartQty] = useState(cartItem.quantity);
+  console.log(cartQty);
+  
+  function manualCartQty(e) {
+
+  }
+
+  function addCartQty() {
+    console.log(cart)
+    if (cartQty > 99) {
+      return;
+    } else {
+      const newQuant = cartQty + 1;
+      setCartQty(newQuant);
+      const newCart = cart;
+      newCart.map((item) => {
+        if (item === cartItem) {
+          cartItem.quantity = cartQty;
+        }
+      });
+      console.log(newCart);
+      setCart(newCart);
+    }
+  }
+
+  function subCartQty() {
+
+  }
+  
   return (
     <div className="cart-card">
       <div className="cart-item-info-container">
@@ -28,9 +59,20 @@ export function CartCard({ cartItem }) {
       </div>
       <div className="cart-item-quantity-container">
         <div className="cart-item-quantity">
-          <button>-</button>
-          <input/>
-          <button>+</button>
+          <button 
+            onClick={subCartQty}
+            disabled={cartQty <= 1}
+          >-
+          </button>
+          <input  
+            value={cartQty}
+            onChange={manualCartQty} 
+          />
+          <button 
+            onClick={addCartQty}
+            disabled={cartQty >= 99}
+          >+
+          </button>
         </div>
         <div className="cart delete">
 
