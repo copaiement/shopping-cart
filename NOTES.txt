@@ -1,10 +1,12 @@
-Need to add cart functionality
-
-Cart page should be a list of the cards with the product information
-Lengthwise setup instead of standard cards
-Show image, product name, quantity, price, and total price of all items.
-
 Cart icon (also a link) needs to show when items are in the cart
+
+Site needs some functionality that shows when cart items have been added
+
+Site needs a loading screen between pages??
+
+Cart page needs links back to individual products
+
+
 
 
 

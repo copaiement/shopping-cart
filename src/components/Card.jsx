@@ -7,7 +7,7 @@ export function Card({ item }) {
     <Link to={`/item/${item.id}`}>
       <div className="card">
         <div className="card-image">
-          <img src={item.imgUrl} alt={item.title} />
+          <img className="card-img" src={item.imgUrl} alt={item.title} />
         </div>
         <div className="card-title">{item.title}</div>
         <div className="card-price">$ {item.price}0</div>
@@ -85,11 +85,11 @@ export function CartCard({ cart, cartItem, setCart }) {
   return (
     <div className="cart-card">
       <div className="cart-item-info-container">
-        <div className="cart-item-image">
-          <img src={cartItem.item.imgUrl} alt={cartItem.item.title} />
+        <img className="cart-item-image" src={cartItem.item.imgUrl} alt={cartItem.item.title} />
+        <div className="cart-item-info-right">
+          <div className="cart-item-title">{cartItem.item.title}</div>
+          <div className="cart-item-price">$ {cartItem.item.price}0</div>
         </div>
-        <div className="cart-item-title">{cartItem.item.title}</div>
-        <div className="cart-item-price">$ {cartItem.item.price}0</div>
       </div>
       <div className="cart-item-quantity-container">
         <div className="cart-item-quantity">
@@ -98,7 +98,8 @@ export function CartCard({ cart, cartItem, setCart }) {
             disabled={cartQty <= 1}
           >-
           </button>
-          <input  
+          <input 
+            className="cart-qty-input" 
             value={cartQty}
             onChange={manualCartQty} 
           />
@@ -107,15 +108,14 @@ export function CartCard({ cart, cartItem, setCart }) {
             disabled={cartQty >= 99}
           >+
           </button>
-          <button
-            onClick={deleteFromCart}
-          >
-            {/* ADD TRASH ICON */}
-            DELETE
-          </button>
         </div>
         <div className="cart delete">
-
+          <button
+              onClick={deleteFromCart}
+            >
+              {/* ADD TRASH ICON */}
+              DELETE
+            </button>
         </div>
       </div>
       <div className="cart-item-total-container">

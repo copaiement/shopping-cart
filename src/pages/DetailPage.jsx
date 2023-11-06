@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
+import '../styles/catalog.css'
 
 export function DetailPage({ items, addToCart, setActive }) {
   const { itemId } = useParams();
@@ -45,7 +46,7 @@ export function DetailPage({ items, addToCart, setActive }) {
     <div className="detail-page">
       <Link to="/">Home</Link>
       <div className="detail-img-container">
-        <img src={item.imgUrl} alt={item.title} />
+        <img className="detail-img" src={item.imgUrl} alt={item.title} />
       </div>
       <div className="detail-info-container">
         <div className="detail-title">{item.title}</div>
