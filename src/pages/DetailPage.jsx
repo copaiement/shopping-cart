@@ -11,15 +11,15 @@ export function DetailPage({ items, addToCart, setActive }) {
       item: item,
       quantity: quantity,
     });
-    console.log('detail useEffect')
   },[setActive, item, quantity])
   
   function manualQty(e) {
-    // if entered item is not a number, return
     const regex = /(^\d*$)/
-    if (regex.test(e.target.value) ) {
+    // if intered item is not a number, or greater than 99, return
+    if (!regex.test(e.target.value) || e.target.value > 99) {
+      return;
+    } else if (regex.test(e.target.value)) {
       setQuantity(Number(e.target.value));
-      console.log(Number(e.target.value));
     }
   }
 

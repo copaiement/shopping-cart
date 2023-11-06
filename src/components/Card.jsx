@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/card.css'
 
 export function Card({ item }) {
@@ -18,33 +18,66 @@ export function Card({ item }) {
 }
 
 export function CartCard({ cart, cartItem, setCart }) {
-  
+  // item constants
+  const price = Number(cartItem.item.price);
+
   const [cartQty, setCartQty] = useState(cartItem.quantity);
-  console.log(cartQty);
-  
+  const [total, setTotal] = useState(price * cartItem.quantity);
+
   function manualCartQty(e) {
-
-  }
-
-  function addCartQty() {
-    console.log(cart)
-    if (cartQty > 99) {
+    const regex = /(^\d*$)/
+    // if intered item is not a number, or greater than 99, return
+    if (!regex.test(e.target.value) || e.target.value > 99) {
       return;
-    } else {
-      const newQuant = cartQty + 1;
-      setCartQty(newQuant);
+    } else if (regex.test(e.target.value)) {
+      let num = Number(e.target.value)
+      setCartQty(num);
+      setTotal(num * price);
       const newCart = cart;
       newCart.map((item) => {
         if (item === cartItem) {
           cartItem.quantity = cartQty;
         }
       });
-      console.log(newCart);
+      setCart(newCart);
+    }
+  }
+
+  function addCartQty() {
+    if (cartQty > 99) {
+      return;
+    } else {
+      const newQuant = cartQty + 1;
+      setCartQty(newQuant);
+      setTotal(newQuant * price);
+      const newCart = cart;
+      newCart.map((item) => {
+        if (item === cartItem) {
+          cartItem.quantity = cartQty;
+        }
+      });
       setCart(newCart);
     }
   }
 
   function subCartQty() {
+    if (cartQty <= 1) {
+      return;
+    } else {
+      const newQuant = cartQty - 1;
+      setCartQty(newQuant);
+      setTotal(newQuant * price);
+      const newCart = cart;
+      newCart.map((item) => {
+        if (item === cartItem) {
+          cartItem.quantity = cartQty;
+        }
+      });
+      setCart(newCart);
+    }
+  }
+
+  function deleteFromCart() {
 
   }
   
@@ -73,13 +106,19 @@ export function CartCard({ cart, cartItem, setCart }) {
             disabled={cartQty >= 99}
           >+
           </button>
+          <button
+            onClick={deleteFromCart}
+          >
+            {/* ADD TRASH ICON */}
+            DELETE
+          </button>
         </div>
         <div className="cart delete">
 
         </div>
       </div>
       <div className="cart-item-total-container">
-        <div className="cart-item-total">{Number(cartItem.item.price) * cartItem.quantity}</div>
+        <div className="cart-item-total">{'$ '+total+'.00'}</div>
       </div>
     </div>
   )
