@@ -78,7 +78,8 @@ export function CartCard({ cart, cartItem, setCart }) {
   }
 
   function deleteFromCart() {
-
+    const newCart = cart.filter((item) => item !== cartItem);
+    setCart(newCart);
   }
   
   return (
