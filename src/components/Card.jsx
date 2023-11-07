@@ -17,12 +17,26 @@ export function Card({ item }) {
   )
 }
 
-export function CartCard({ cart, cartItem, setCart }) {
+export function CartCard({ cart, cartItem, setCart, subtotal, setSubtotal }) {
   // item constants
   const price = Number(cartItem.item.price);
 
   const [cartQty, setCartQty] = useState(cartItem.quantity);
-  const [total, setTotal] = useState(price * cartItem.quantity);
+  const [total, setTotal] = useState(cartItem.total);
+  console.log(cart);
+
+  // useEffect(() => {
+  //   console.log('cart card useEffect');
+  //   console.log(cart);
+  //   const newCart = cart;
+  //   newCart.map((arrItem) => {
+  //     if (arrItem === cartItem) {
+  //       cartItem.quantity = cartQty;
+  //       cartItem.total = cartQty * price;
+  //     }
+  //   })
+  //   setCart(newCart);
+  // }, [cart, cartItem, setCart, cartQty, total, price]);
 
   function manualCartQty(e) {
     const regex = /(^\d*$)/
@@ -30,16 +44,9 @@ export function CartCard({ cart, cartItem, setCart }) {
     if (!regex.test(e.target.value) || e.target.value > 99) {
       return;
     } else if (regex.test(e.target.value)) {
-      let num = Number(e.target.value)
+      let num = Number(e.target.value);
       setCartQty(num);
       setTotal(num * price);
-      const newCart = cart;
-      newCart.map((item) => {
-        if (item === cartItem) {
-          cartItem.quantity = cartQty;
-        }
-      });
-      setCart(newCart);
     }
   }
 
@@ -50,13 +57,6 @@ export function CartCard({ cart, cartItem, setCart }) {
       const newQuant = cartQty + 1;
       setCartQty(newQuant);
       setTotal(newQuant * price);
-      const newCart = cart;
-      newCart.map((item) => {
-        if (item === cartItem) {
-          cartItem.quantity = cartQty;
-        }
-      });
-      setCart(newCart);
     }
   }
 
@@ -67,13 +67,6 @@ export function CartCard({ cart, cartItem, setCart }) {
       const newQuant = cartQty - 1;
       setCartQty(newQuant);
       setTotal(newQuant * price);
-      const newCart = cart;
-      newCart.map((item) => {
-        if (item === cartItem) {
-          cartItem.quantity = cartQty;
-        }
-      });
-      setCart(newCart);
     }
   }
 

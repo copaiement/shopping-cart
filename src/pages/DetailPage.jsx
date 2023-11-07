@@ -11,6 +11,7 @@ export function DetailPage({ items, addToCart, setActive }) {
     setActive({
       item: item,
       quantity: quantity,
+      total: item.price * quantity,
     });
   },[setActive, item, quantity])
   

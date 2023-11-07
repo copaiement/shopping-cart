@@ -15,7 +15,7 @@ export function App() {
   const [items, setItems] = useState([]);
   const [featured, setFeatured] = useState([]);
   const [cart, setCart] = useState([]);
-  const [active, setActive] = useState({})
+  const [active, setActive] = useState({});
 
   function addToCart() {
     const newCart = cart;
@@ -24,7 +24,7 @@ export function App() {
     // if not, push the active item as-is
     newCart.push(active);
     setCart(newCart);
-    console.log(cart)
+    console.log(cart);
   }
 
   // initial API call on mount
@@ -42,7 +42,7 @@ export function App() {
       <Routes>
         <Route path="/" element={<Home items={featured} />} />
         <Route path="catalog" element={<Catalog items={items} />} />
-        <Route path="cart" element={<ShoppingCart cart={cart} setCart={setCart}/>} />
+        <Route path="cart" element={<ShoppingCart cart={cart} setCart={setCart} />} />
         <Route path="item/:itemId" element={<DetailPage items={items} addToCart={addToCart} setActive={setActive}/>} />
       </Routes>
       <Footer />

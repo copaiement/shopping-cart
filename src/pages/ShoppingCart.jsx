@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom"
 import { CartCard } from "../components/Card"
+import { useState, useEffect } from "react";
 
 export function ShoppingCart({ cart, setCart }) {
-  
-  console.log(cart)
+
+  const [subtotal, setSubtotal] = useState(cart.reduce((acc, curr) => acc + curr.total, 0));
 
   return (
     <>  
@@ -30,7 +31,9 @@ export function ShoppingCart({ cart, setCart }) {
                   key={item.item.id}
                   cart={cart} 
                   cartItem={item}
-                  setCart={setCart} 
+                  setCart={setCart}
+                  subtotal={subtotal}
+                  setSubtotal={setSubtotal}
                 />
               ))}
 
@@ -39,7 +42,9 @@ export function ShoppingCart({ cart, setCart }) {
           <div className="checkout-container">
             <div className="cart-subtotal">
               <div className="subtotal-text">Subtotal</div>
-              <div className="subtotal"></div>
+              <div className="subtotal">
+                { cart.reduce((acc, curr) => acc + curr.total, 0) }
+              </div>
             </div>
             <div className="shipping-msg">Taxes and shipping calculated at checkout</div>
             <button className="checkout">Check out</button>
