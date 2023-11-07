@@ -5,7 +5,10 @@ import { useState, useEffect } from "react";
 export function ShoppingCart({ cart, setCart }) {
 
   const [subtotal, setSubtotal] = useState(cart.reduce((acc, curr) => acc + curr.total, 0));
-
+  console.log('ShoppingCart rerender')
+  
+  
+  
   return (
     <>  
     { cart.length === 0 ? 
@@ -32,8 +35,6 @@ export function ShoppingCart({ cart, setCart }) {
                   cart={cart} 
                   cartItem={item}
                   setCart={setCart}
-                  subtotal={subtotal}
-                  setSubtotal={setSubtotal}
                 />
               ))}
 
@@ -43,7 +44,7 @@ export function ShoppingCart({ cart, setCart }) {
             <div className="cart-subtotal">
               <div className="subtotal-text">Subtotal</div>
               <div className="subtotal">
-                { cart.reduce((acc, curr) => acc + curr.total, 0) }
+                { '$ ' + cart.reduce((acc, curr) => acc + curr.total, 0) + '.00' }
               </div>
             </div>
             <div className="shipping-msg">Taxes and shipping calculated at checkout</div>

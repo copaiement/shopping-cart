@@ -17,6 +17,8 @@ export function App() {
   const [cart, setCart] = useState([]);
   const [active, setActive] = useState({});
 
+  console.log('App rerender')
+
   function addToCart() {
     const newCart = cart;
     // check if item exists

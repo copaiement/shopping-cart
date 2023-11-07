@@ -17,26 +17,7 @@ export function Card({ item }) {
   )
 }
 
-export function CartCard({ cart, cartItem, setCart, subtotal, setSubtotal }) {
-  // item constants
-  const price = Number(cartItem.item.price);
-
-  const [cartQty, setCartQty] = useState(cartItem.quantity);
-  const [total, setTotal] = useState(cartItem.total);
-  console.log(cart);
-
-  // useEffect(() => {
-  //   console.log('cart card useEffect');
-  //   console.log(cart);
-  //   const newCart = cart;
-  //   newCart.map((arrItem) => {
-  //     if (arrItem === cartItem) {
-  //       cartItem.quantity = cartQty;
-  //       cartItem.total = cartQty * price;
-  //     }
-  //   })
-  //   setCart(newCart);
-  // }, [cart, cartItem, setCart, cartQty, total, price]);
+export function CartCard({ cart, cartItem, setCart }) {
 
   function manualCartQty(e) {
     const regex = /(^\d*$)/
@@ -44,29 +25,45 @@ export function CartCard({ cart, cartItem, setCart, subtotal, setSubtotal }) {
     if (!regex.test(e.target.value) || e.target.value > 99) {
       return;
     } else if (regex.test(e.target.value)) {
-      let num = Number(e.target.value);
-      setCartQty(num);
-      setTotal(num * price);
+      const newCart = [...cart];
+      newCart.map((arrItem) => {
+        if (arrItem === cartItem) {
+          cartItem.quantity = Number(e.target.value);
+          cartItem.total = cartItem.quantity * cartItem.item.price;
+        }
+      })
+      setCart(newCart);
     }
   }
 
   function addCartQty() {
-    if (cartQty > 99) {
+    if (cartItem.quantity > 99) {
       return;
     } else {
-      const newQuant = cartQty + 1;
-      setCartQty(newQuant);
-      setTotal(newQuant * price);
+      const newCart = [...cart];
+      newCart.map((arrItem) => {
+        if (arrItem === cartItem) {
+          cartItem.quantity += 1;
+          cartItem.total = cartItem.quantity * cartItem.item.price;
+        }
+      })
+      setCart(newCart);
+      console.log(cart);
     }
   }
 
   function subCartQty() {
-    if (cartQty <= 1) {
+    if (cartItem.quantity <= 1) {
       return;
-    } else {
-      const newQuant = cartQty - 1;
-      setCartQty(newQuant);
-      setTotal(newQuant * price);
+    } else {      
+      const newCart = [...cart];
+      newCart.map((arrItem) => {
+        if (arrItem === cartItem) {
+          cartItem.quantity -= 1;
+          cartItem.total = cartItem.quantity * cartItem.item.price;
+        }
+      })
+      setCart(newCart);
     }
   }
 
@@ -88,17 +85,17 @@ export function CartCard({ cart, cartItem, setCart, subtotal, setSubtotal }) {
         <div className="cart-item-quantity">
           <button 
             onClick={subCartQty}
-            disabled={cartQty <= 1}
+            disabled={cartItem.quantity <= 1}
           >-
           </button>
           <input 
             className="cart-qty-input" 
-            value={cartQty}
+            value={cartItem.quantity}
             onChange={manualCartQty} 
           />
           <button 
             onClick={addCartQty}
-            disabled={cartQty >= 99}
+            disabled={cartItem.quantity >= 99}
           >+
           </button>
         </div>
@@ -112,7 +109,7 @@ export function CartCard({ cart, cartItem, setCart, subtotal, setSubtotal }) {
         </div>
       </div>
       <div className="cart-item-total-container">
-        <div className="cart-item-total">{'$ '+total+'.00'}</div>
+        <div className="cart-item-total">{'$ '+ cartItem.quantity * cartItem.item.price +'.00'}</div>
       </div>
     </div>
   )
