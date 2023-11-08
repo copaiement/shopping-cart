@@ -33,3 +33,10 @@
 path {
   fill: white;
 }
+
+/* SEARCH BAR STYLES */
+.search-container {
+  background-color: orange;
+  width: 30%;
+  height: 100%;
+}
