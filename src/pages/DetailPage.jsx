@@ -74,7 +74,9 @@ export function DetailPage({ items, cart, setCart }) {
         <img className="cart-add-img" src={item.imgUrl} alt={item.title} />
         <div className="cart-add-text">Item added to Cart</div>
       </div>
-      <Link to="/catalog">Back</Link>
+      <Link to="/catalog">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>arrow-left-bold</title><path d="M20,9V15H12V19.84L4.16,12L12,4.16V9H20Z" /></svg>
+      </Link>
 
       <div className="detail-img-container">
         <img className="detail-img" src={item.imgUrl} alt={item.title} />

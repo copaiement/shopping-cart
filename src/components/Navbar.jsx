@@ -5,12 +5,13 @@ export function Navbar({cart}) {
   return (
     <div className="navbar">
       {/* replace this image div with a Link item */}
-      <div className="navbar-img"></div>
+      <Link className="navbar-link" to="/">
+        <img className="navbar-logo" src="./src/assets/RDSH-Logo.avif" alt="" />
+      </Link>
       <div className="searchbar">
 
       </div>
       <div className="navbar-links">
-        <Link className="navbar-link" to="/">Home</Link>
         <Link to={`catalog`}>Catalog</Link>
         <Link to={`cart`}>
           { cart.length === 0 ?
