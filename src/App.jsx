@@ -9,25 +9,12 @@ import './App.css'
 import { fetchItems } from "./utils/getItems"
 import { useEffect, useState } from "react"
 
-
-
 export function App() {
   const [items, setItems] = useState([]);
   const [featured, setFeatured] = useState([]);
   const [cart, setCart] = useState([]);
-  const [active, setActive] = useState({});
 
-  console.log('App rerender')
-
-  function addToCart() {
-    const newCart = [...cart];
-    // check if item exists
-    // if so, add new qty to existing
-    // if not, push the active item as-is
-    newCart.push(active);
-    setCart(newCart);
-    console.log(cart);
-  }
+  console.log('App rerender');
 
   // initial API call on mount
   useEffect(() => {
@@ -45,7 +32,7 @@ export function App() {
         <Route path="/" element={<Home items={featured} />} />
         <Route path="catalog" element={<Catalog items={items} />} />
         <Route path="cart" element={<ShoppingCart cart={cart} setCart={setCart} />} />
-        <Route path="item/:itemId" element={<DetailPage items={items} addToCart={addToCart} setActive={setActive}/>} />
+        <Route path="item/:itemId" element={<DetailPage items={items} cart={cart} setCart={setCart} />} />
       </Routes>
       <Footer />
     </>

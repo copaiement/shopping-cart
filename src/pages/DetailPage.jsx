@@ -2,13 +2,14 @@ import { Link, useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import '../styles/catalog.css'
 
-export function DetailPage({ items, addToCart, setActive }) {
+export function DetailPage({ items, cart, setCart }) {
   const { itemId } = useParams();
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(1);
+  const [active, setActive] = useState([]);
   const item = items.find((item) => item.id === itemId);
 
   useEffect(() => {
-    console.log('catalog useeffect')
+    console.log('detail useeffect')
     setActive({
       item: item,
       quantity: quantity,
@@ -42,6 +43,16 @@ export function DetailPage({ items, addToCart, setActive }) {
       const newQuant = quantity - 1;
       setQuantity(newQuant);
     }
+  }
+
+  function addToCart() {
+    const newCart = [...cart];
+    // check if item exists
+    // if so, add new qty to existing
+    // if not, push the active item as-is
+    newCart.push(active);
+    setCart(newCart);
+    console.log(cart);
   }
 
   return (
