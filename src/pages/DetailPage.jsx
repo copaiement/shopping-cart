@@ -46,13 +46,21 @@ export function DetailPage({ items, cart, setCart }) {
   }
 
   function addToCart() {
+    // create newCart
     const newCart = [...cart];
-    // check if item exists
-    // if so, add new qty to existing
-    // if not, push the active item as-is
-    newCart.push(active);
-    setCart(newCart);
-    console.log(cart);
+
+    // if newCart already contains active item, add new quantity to old
+    if (newCart.find((cartItem) => cartItem.item === active.item)) {
+      const index = newCart.findIndex((cartItem) => cartItem.item === active.item);
+      newCart[index].quantity += active.quantity;
+      setCart(newCart);
+      console.log(cart);
+    } else {
+      // else push active to cart
+      newCart.push(active);
+      setCart(newCart);
+      console.log(cart);
+    }
   }
 
   return (
