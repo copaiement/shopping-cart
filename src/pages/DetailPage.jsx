@@ -61,10 +61,19 @@ export function DetailPage({ items, cart, setCart }) {
       setCart(newCart);
       console.log(cart);
     }
+
+    // fire modal
+    const modal = document.querySelector('.cart-add-modal');
+    modal.classList.toggle('hidden');
+    setTimeout(() => modal.classList.toggle('hidden'), '5000');
   }
 
   return (
     <div className="detail-page">
+      <div className="cart-add-modal hidden">
+        <img className="cart-add-img" src={item.imgUrl} alt={item.title} />
+        <div className="cart-add-text">Item added to Cart</div>
+      </div>
       <Link to="/catalog">Back</Link>
 
       <div className="detail-img-container">
