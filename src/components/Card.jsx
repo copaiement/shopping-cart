@@ -73,13 +73,15 @@ export function CartCard({ cart, cartItem, setCart }) {
   
   return (
     <div className="cart-card">
-      <div className="cart-item-info-container">
-        <img className="cart-item-image" src={cartItem.item.imgUrl} alt={cartItem.item.title} />
-        <div className="cart-item-info-right">
-          <div className="cart-item-title">{cartItem.item.title}</div>
-          <div className="cart-item-price">$ {cartItem.item.price}0</div>
+      <Link to={`/item/${cartItem.item.id}`}>
+        <div className="cart-item-info-container">
+          <img className="cart-item-image" src={cartItem.item.imgUrl} alt={cartItem.item.title} />
+          <div className="cart-item-info-right">
+            <div className="cart-item-title">{cartItem.item.title}</div>
+            <div className="cart-item-price">$ {cartItem.item.price}0</div>
+          </div>
         </div>
-      </div>
+      </Link>
       <div className="cart-item-quantity-container">
         <div className="cart-item-quantity">
           <button 

@@ -27,7 +27,7 @@ export function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar cart={ cart } />
       <Routes>
         <Route path="/" element={<Home items={featured} />} />
         <Route path="catalog" element={<Catalog items={items} />} />

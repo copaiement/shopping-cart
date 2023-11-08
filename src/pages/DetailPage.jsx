@@ -65,7 +65,7 @@ export function DetailPage({ items, cart, setCart }) {
     // fire modal
     const modal = document.querySelector('.cart-add-modal');
     modal.classList.toggle('hidden');
-    setTimeout(() => modal.classList.toggle('hidden'), '5000');
+    setTimeout(() => modal.classList.toggle('hidden'), '3000');
   }
 
   return (
@@ -101,6 +101,14 @@ export function DetailPage({ items, cart, setCart }) {
         </button>
         <button onClick={addToCart}>Add to Cart</button>
       </div>
+      { cart.length !== 0 ?
+        <div className="go-to-cart">
+          <Link to="/cart">View Cart</Link>
+        </div>
+      :
+        <div className="go-to-cart">
+        </div>
+      }
     </div>
   )
 }

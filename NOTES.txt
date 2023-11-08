@@ -1,10 +1,6 @@
-Cart icon (also a link) needs to show when items are in the cart
-
-Site needs some functionality that shows when cart items have been added
-
 Site needs a loading screen between pages??
 
-Cart page needs links back to individual products
+Navbar needs Icon and functioning searchbar
 
 
 
