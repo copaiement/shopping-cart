@@ -8,6 +8,7 @@ export function DetailPage({ items, addToCart, setActive }) {
   const item = items.find((item) => item.id === itemId);
 
   useEffect(() => {
+    console.log('catalog useeffect')
     setActive({
       item: item,
       quantity: quantity,
@@ -45,7 +46,8 @@ export function DetailPage({ items, addToCart, setActive }) {
 
   return (
     <div className="detail-page">
-      <Link to="/">Home</Link>
+      <Link to="/catalog">Back</Link>
+
       <div className="detail-img-container">
         <img className="detail-img" src={item.imgUrl} alt={item.title} />
       </div>

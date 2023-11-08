@@ -20,7 +20,7 @@ export function App() {
   console.log('App rerender')
 
   function addToCart() {
-    const newCart = cart;
+    const newCart = [...cart];
     // check if item exists
     // if so, add new qty to existing
     // if not, push the active item as-is
