@@ -115,3 +115,11 @@ export function CartCard({ cart, cartItem, setCart }) {
     </div>
   )
 }
+
+export function ResultCard({ result }) {
+  return (
+    <div className="result-card">
+      <div className="result-name">{ result.title }</div>
+    </div>
+  )
+}

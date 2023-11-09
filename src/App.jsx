@@ -13,16 +13,6 @@ export function App() {
   const [items, setItems] = useState([]);
   const [featured, setFeatured] = useState([]);
   const [cart, setCart] = useState([]);
-  const [search, setSearch] = useState('');
-  const [showSearch, setShowSearch] = useState(false);
-
-  function toggleSearch() {
-    if (showSearch) {
-      setShowSearch(false);
-    } else {
-      setShowSearch(true);
-    }
-  }
 
   console.log('App rerender');
 
@@ -40,10 +30,7 @@ export function App() {
     <>
       <Navbar
         cart={cart} 
-        search={search}
-        setSearch={setSearch}
-        showSearch={showSearch}
-        toggleSearch={toggleSearch} 
+        items={items}
       />
       <Routes>
         <Route path="/" element={<Home items={featured} />} />

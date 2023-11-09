@@ -19,7 +19,7 @@ export function DetailPage({ items, cart, setCart }) {
   
   function manualQty(e) {
     const regex = /(^\d*$)/
-    // if intered item is not a number, or greater than 99, return
+    // if entered item is not a number, or greater than 99, return
     if (!regex.test(e.target.value) || e.target.value > 99) {
       return;
     } else if (regex.test(e.target.value)) {
