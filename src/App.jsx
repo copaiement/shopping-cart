@@ -13,11 +13,22 @@ export function App() {
   const [items, setItems] = useState([]);
   const [featured, setFeatured] = useState([]);
   const [cart, setCart] = useState([]);
+  const [search, setSearch] = useState('');
+  const [showSearch, setShowSearch] = useState(false);
+
+  function toggleSearch() {
+    if (showSearch) {
+      setShowSearch(false);
+    } else {
+      setShowSearch(true);
+    }
+  }
 
   console.log('App rerender');
 
   // initial API call on mount
   useEffect(() => {
+    console.log('App UE');
     (async () => {
       const newItems = await fetchItems(10);
       setItems(newItems);
@@ -27,7 +38,13 @@ export function App() {
 
   return (
     <>
-      <Navbar cart={ cart } />
+      <Navbar
+        cart={cart} 
+        search={search}
+        setSearch={setSearch}
+        showSearch={showSearch}
+        toggleSearch={toggleSearch} 
+      />
       <Routes>
         <Route path="/" element={<Home items={featured} />} />
         <Route path="catalog" element={<Catalog items={items} />} />
