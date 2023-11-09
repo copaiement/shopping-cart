@@ -116,10 +116,12 @@ export function CartCard({ cart, cartItem, setCart }) {
   )
 }
 
-export function ResultCard({ result }) {
+export function ResultCard({ result, toggleSearch }) {
   return (
-    <div className="result-card">
-      <div className="result-name">{ result.title }</div>
-    </div>
+    <Link onClick={toggleSearch} to={`/item/${result.id}`}>
+      <div className="result-card">
+        <div className="result-name">{result.title}</div>
+      </div>
+    </Link>
   )
 }
