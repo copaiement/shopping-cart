@@ -63,3 +63,17 @@
 .cart-qty-input {
   width: 4rem;
 }
+
+/* RESULT CART STYLES */
+.result-card-link {
+  text-decoration: none;
+  color: black;
+}
+
+.result-card {
+  padding: .5rem;
+}
+
+.result-card:hover {
+  background-color: rgb(255, 198, 91);
+}

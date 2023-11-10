@@ -15,6 +15,11 @@ export function Navbar({ cart, items }) {
     setResults(newResults);
   },[items, query])
 
+  useEffect(() => {
+    console.log('animate UE')
+    if (showSearch) document.getElementById('sc').classList.add('animate');
+  },[showSearch])
+
   function toggleSearch() {
     if (showSearch) {
       setShowSearch(false);

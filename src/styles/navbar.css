@@ -47,6 +47,7 @@ path {
 
 .search-container {
   position: absolute;
+  overflow: hidden;
   left: 70%;
   background-color: orange;
   opacity: 1;
@@ -56,6 +57,23 @@ path {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.animate {
+  animation: searchSlide .5s;
+  transform-origin: 100% 50%;
+}
+
+@keyframes searchSlide {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 .search-controls {
