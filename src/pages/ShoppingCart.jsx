@@ -1,26 +1,25 @@
 import { Link } from "react-router-dom"
 import { CartCard } from "../components/Card"
-import { useState, useEffect } from "react";
+// import { useState } from "react";
+import '../styles/cart.css'
 
 export function ShoppingCart({ cart, setCart }) {
 
-  const [subtotal, setSubtotal] = useState(cart.reduce((acc, curr) => acc + curr.total, 0));
+  // const [subtotal, setSubtotal] = useState(cart.reduce((acc, curr) => acc + curr.total, 0));
   console.log('ShoppingCart rerender')
-  
-  
   
   return (
     <>  
     { cart.length === 0 ? 
-        <div className="cart-page">
-          <div className="cart-header">Your cart is empty</div>
-          <Link className="navbar-link" to="/catalog">Continue shopping</Link>
+        <div className="cart-page-empty">
+          <div className="cart-header-empty">Your cart is empty</div>
+          <Link className="cart-continue" to="/catalog">Continue shopping</Link>
         </div>
       :
         <div className="cart-page">
           <div className="cart-page-header">
             <div className="cart-header">Your cart</div>
-            <Link className="navbar-link" to="/catalog">Continue shopping</Link>
+            <Link className="cart-continue" to="/catalog">Continue shopping</Link>
           </div>
           <div className="cart-container">
             <div className="cart-data-headers">
@@ -48,7 +47,7 @@ export function ShoppingCart({ cart, setCart }) {
               </div>
             </div>
             <div className="shipping-msg">Taxes and shipping calculated at checkout</div>
-            <button className="checkout">Check out</button>
+            <button className="checkout" onClick={() => alert("Thank you!")}>Check out</button>
           </div>
         </div>
       }

@@ -102,6 +102,7 @@ export function CartCard({ cart, cartItem, setCart }) {
         </div>
         <div className="cart delete">
           <button
+              className="cart-delete-btn"
               onClick={deleteFromCart}
             >
               {/* ADD TRASH ICON */}

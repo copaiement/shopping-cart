@@ -29,6 +29,8 @@
 /* CART STYLES */
 .cart-card {
   border: 1px solid gray;
+  font-family: inherit;
+  padding-right: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,6 +50,7 @@
 }
 
 .cart-item-info-right {
+  color: black;
   display: flex;
   flex-direction: column;
 }
@@ -58,11 +61,42 @@
 }
 
 .cart-item-quantity {
+  display: flex;
+}
 
+.cart-item-quantity > button,
+.cart-delete-btn {
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: rgb(214, 144, 97);
+  color: black;
+  border: none;
+  cursor: pointer;
+  padding: 8px 14px;
 }
 
 .cart-qty-input {
-  width: 4rem;
+  width: 40px;
+  font-family: inherit;
+  font-size: 16px;
+  text-align: center;
+  background-color: rgb(228, 169, 130);
+  border: none;
+}
+
+.cart-item-quantity > button:hover,
+.cart-delete-btn:hover {
+  background-color: rgb(231, 107, 23);
+}
+
+.go-to-cart-btn:hover {
+  background-color: rgb(105, 105, 224);
+}
+
+.cart-item-quantity > button:disabled {
+  background-color: rgb(148, 137, 131);
+  cursor: default;
 }
 
 /* RESULT CART STYLES */
