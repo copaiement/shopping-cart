@@ -20,7 +20,7 @@ export function App() {
   useEffect(() => {
     console.log('App UE');
     (async () => {
-      const newItems = await fetchItems(10);
+      const newItems = await fetchItems(30);
       setItems(newItems);
       setFeatured(newItems.slice(0,6));
     })();

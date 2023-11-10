@@ -55,6 +55,12 @@
   flex-direction: column;
 }
 
+.cart-right-items {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
 .cart-item-quantity-container {
   display: flex;
   gap: 1rem;

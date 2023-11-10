@@ -82,36 +82,38 @@ export function CartCard({ cart, cartItem, setCart }) {
           </div>
         </div>
       </Link>
-      <div className="cart-item-quantity-container">
-        <div className="cart-item-quantity">
-          <button 
-            onClick={subCartQty}
-            disabled={cartItem.quantity <= 1}
-          >-
-          </button>
-          <input 
-            className="cart-qty-input" 
-            value={cartItem.quantity}
-            onChange={manualCartQty} 
-          />
-          <button 
-            onClick={addCartQty}
-            disabled={cartItem.quantity >= 99}
-          >+
-          </button>
-        </div>
-        <div className="cart delete">
-          <button
-              className="cart-delete-btn"
-              onClick={deleteFromCart}
-            >
-              {/* ADD TRASH ICON */}
-              DELETE
+      <div className="cart-right-items">
+        <div className="cart-item-quantity-container">
+          <div className="cart-item-quantity">
+            <button
+              onClick={subCartQty}
+              disabled={cartItem.quantity <= 1}
+            >-
             </button>
+            <input
+              className="cart-qty-input"
+              value={cartItem.quantity}
+              onChange={manualCartQty}
+            />
+            <button
+              onClick={addCartQty}
+              disabled={cartItem.quantity >= 99}
+            >+
+            </button>
+          </div>
+          <div className="cart delete">
+            <button
+                className="cart-delete-btn"
+                onClick={deleteFromCart}
+              >
+                {/* ADD TRASH ICON */}
+                DELETE
+              </button>
+          </div>
         </div>
-      </div>
-      <div className="cart-item-total-container">
-        <div className="cart-item-total">{'$ '+ cartItem.quantity * cartItem.item.price +'.00'}</div>
+        <div className="cart-item-total-container">
+          <div className="cart-item-total">{'$ '+ cartItem.quantity * cartItem.item.price +'.00'}</div>
+        </div>
       </div>
     </div>
   )
