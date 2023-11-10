@@ -18,7 +18,6 @@ export function App() {
 
   // initial API call on mount
   useEffect(() => {
-    console.log('App UE');
     (async () => {
       const newItems = await fetchItems(30);
       setItems(newItems);

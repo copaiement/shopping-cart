@@ -10,13 +10,11 @@ export function Navbar({ cart, items }) {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    console.log("Navbar UE")
     const newResults = items.filter((item) => item.id.includes(query.toLowerCase()));
     setResults(newResults);
   },[items, query])
 
   useEffect(() => {
-    console.log('animate UE')
     if (showSearch) document.getElementById('sc').classList.add('animate');
   },[showSearch])
 
@@ -40,7 +38,9 @@ export function Navbar({ cart, items }) {
     <>
       <div className="navbar">
         <Link className="navbar-link" to="/">
-          <img className="navbar-logo" src="./src/assets/RDSH-Logo.avif" alt="" />
+          {/* <img className="navbar-logo" src="./src/assets/RDSH-Logo.avif" alt="" /> */}
+          <img className="navbar-logo" src="./public/static/images/RDSH-Logo.avif" alt="" />
+
         </Link>
         <div className="navbar-links">
           <Link className="navbar-link text-link" to={`catalog`}>Catalog</Link>

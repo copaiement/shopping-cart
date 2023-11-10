@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom"
 import { CartCard } from "../components/Card"
-// import { useState } from "react";
 import '../styles/cart.css'
 
-export function ShoppingCart({ cart, setCart }) {
-
-  // const [subtotal, setSubtotal] = useState(cart.reduce((acc, curr) => acc + curr.total, 0));
-  console.log('ShoppingCart rerender')
-  
+export function ShoppingCart({ cart, setCart }) {  
   return (
     <>  
     { cart.length === 0 ? 

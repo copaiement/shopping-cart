@@ -47,7 +47,6 @@ export function CartCard({ cart, cartItem, setCart }) {
         }
       })
       setCart(newCart);
-      console.log(cart);
     }
   }
 

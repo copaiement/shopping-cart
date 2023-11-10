@@ -9,7 +9,6 @@ export function DetailPage({ items, cart, setCart }) {
   const item = items.find((item) => item.id === itemId);
 
   useEffect(() => {
-    console.log('detail useeffect')
     setActive({
       item: item,
       quantity: quantity,
@@ -54,12 +53,10 @@ export function DetailPage({ items, cart, setCart }) {
       const index = newCart.findIndex((cartItem) => cartItem.item === active.item);
       newCart[index].quantity += active.quantity;
       setCart(newCart);
-      console.log(cart);
     } else {
       // else push active to cart
       newCart.push(active);
       setCart(newCart);
-      console.log(cart);
     }
 
     // fire modal
