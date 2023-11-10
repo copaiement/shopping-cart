@@ -38,9 +38,7 @@ export function Navbar({ cart, items }) {
     <>
       <div className="navbar">
         <Link className="navbar-link" to="/">
-          {/* <img className="navbar-logo" src="./src/assets/RDSH-Logo.avif" alt="" /> */}
-          <img className="navbar-logo" src="/public/static/images/RDSH-Logo.avif" alt="" />
-
+          <img className="navbar-logo" src="/static/images/RDSH-Logo.avif" alt="" />
         </Link>
         <div className="navbar-links">
           <Link className="navbar-link text-link" to={`catalog`}>Catalog</Link>

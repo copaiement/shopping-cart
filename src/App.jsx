@@ -14,8 +14,6 @@ export function App() {
   const [featured, setFeatured] = useState([]);
   const [cart, setCart] = useState([]);
 
-  console.log('App rerender');
-
   // initial API call on mount
   useEffect(() => {
     (async () => {
