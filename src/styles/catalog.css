@@ -27,8 +27,13 @@
 }
 
 .featured-header {
+  width: 100%;
   font-size: 24px;
+  font-weight: bold;
   padding: 8px;
+  text-align: center;
+  background-color: rgb(197, 233, 97);
+  border-radius: 16px
 }
 
 /* DETAIL PAGE */

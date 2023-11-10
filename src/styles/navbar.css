@@ -1,5 +1,5 @@
 .navbar {
-  background-color: red;
+  background-color: rgb(29, 29, 29);
   margin: 0;
   padding: 12px;
   width: 100%;
@@ -25,7 +25,12 @@
 .navbar-link {
   font-weight: bold;
   text-decoration: none;
-  color: black;
+  color: rgb(163, 163, 163);
+}
+
+.text-link:hover {
+  color: rgb(216, 216, 216);
+  border-bottom: 1px solid rgb(163, 163, 163);;
 }
 
 .icon {

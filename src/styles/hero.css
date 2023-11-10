@@ -1,5 +1,44 @@
 .hero {
+  position: relative;
   height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  background-image: url("./src/assets/mountains.jpg");
+  opacity: .5;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.hero-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  width: 60%;
+  opacity: .7;
+  background-color: black;
+}
+
+.hero-header > img {
+  width: 100%;
+
+}
+
+.hero-text {
+  width: 40%;
+  padding: 24px;
+  background-color: rgb(192, 157, 224);
+  font-weight: bold;
+  position: relative;
 }
 
 @media only screen and (max-width: 1000px) {
