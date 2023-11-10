@@ -78,37 +78,41 @@ export function DetailPage({ items, cart, setCart }) {
         <svg className="icon detail-page-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>arrow-left-bold</title><path d="M20,9V15H12V19.84L4.16,12L12,4.16V9H20Z" /></svg>
       </Link>
 
-      <div className="detail-img-container">
-        <img className="detail-img" src={item.imgUrl} alt={item.title} />
-      </div>
-      <div className="detail-info-container">
-        <div className="detail-title">{item.title}</div>
-        <div className="detail-desc">{item.description}</div>
-        <div className="detail-price">{"$ " + item.price}</div>
-      </div>
-      <div className="detail-qty-container">
-        <div className="detail-qty-btns">
-          <button
-            onClick={subQty}
-            disabled={quantity <= 1}
-          >-
-          </button>
-          <input
-            value={quantity}
-            onChange={manualQty}
-          />
-          <button
-            onClick={addQty}
-            disabled={quantity >= 99}
-          >+
-          </button>
+      <div className="detail-page-container">
+        <div className="detail-img-container">
+          <img className="detail-img" src={item.imgUrl} alt={item.title} />
         </div>
-        <button className="detail-add-to-cart" onClick={addToCart}>Add to Cart</button>
-        { cart.length !== 0 ?
-          <Link className="go-to-cart-btn" to="/cart">View Cart</Link>
-        :
-          <></>
-        }
+        <div className="detail-info">
+          <div className="detail-info-container">
+            <div className="detail-title">{item.title}</div>
+            <div className="detail-desc">{item.description}</div>
+            <div className="detail-price">{"$ " + item.price + "0"}</div>
+          </div>
+          <div className="detail-qty-container">
+            <div className="detail-qty-btns">
+              <button
+                onClick={subQty}
+                disabled={quantity <= 1}
+              >-
+              </button>
+              <input
+                value={quantity}
+                onChange={manualQty}
+              />
+              <button
+                onClick={addQty}
+                disabled={quantity >= 99}
+              >+
+              </button>
+            </div>
+            <button className="detail-add-to-cart" onClick={addToCart}>Add to Cart</button>
+            { cart.length !== 0 ?
+              <Link className="go-to-cart-btn" to="/cart">View Cart</Link>
+            :
+              <></>
+            }
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -43,9 +43,11 @@
 /* DETAIL PAGE */
 .detail-page {
   height: 100%;
+  max-width: 1200px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  align-items: left;
   gap: 16px;
 }
 
@@ -53,16 +55,28 @@
   fill: rgb(0, 0, 0);
 }
 
-.detail-img-container {
+.detail-page-container {
   width: 100%;
   align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 16px;
+}
+
+.detail-img-container {
+  display: flex;
+  max-width: 600px;
 }
 
 .detail-img {
-  width: 500px;
+  width: 100%;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .detail-info-container {
