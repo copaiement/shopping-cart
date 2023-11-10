@@ -5,7 +5,7 @@ export function Hero() {
     <div className="hero">
       <div className="hero-bg"></div>
       <div className="hero-header">
-        <img src="./public/static/images/RDSHWorld.png"/>
+        <img src="/public/static/images/RDSHWorld.png"/>
       </div>
       <p className="hero-text">
         We make the best Rock Climbing Clothing available today.
